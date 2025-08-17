@@ -1,2 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+@theme {
+    --color-sky: #5DC3EC;
+    --color-grass: #6EC21D;
+    --color-interstate-green: #008551;
+
+    --font-overpass: "Overpass", sans-serif;
+}
