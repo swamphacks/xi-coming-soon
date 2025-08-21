@@ -13,6 +13,7 @@ html, body {
     --color-grass: #B4CF9B;
     --color-interstate-green: #008551;
     --color-signpost-gray: #4A5565;
+    --sky-gradient: linear-gradient(182deg, #5DC3EC 1.8%, #CAF0FF 72.79%);
 
     --font-overpass: "Overpass", sans-serif;
 }
