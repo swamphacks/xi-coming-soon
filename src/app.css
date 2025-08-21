@@ -10,8 +10,9 @@ html, body {
 
 @theme {
     --color-sky: #5DC3EC;
-    --color-grass: #6EC21D;
+    --color-grass: #B4CF9B;
     --color-interstate-green: #008551;
+    --color-signpost-gray: #4A5565;
 
     --font-overpass: "Overpass", sans-serif;
 }
