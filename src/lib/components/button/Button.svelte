@@ -1,7 +1,6 @@
-<button 
-        class={`${$$props.class || ''} bg-button hover:bg-button-hover active:bg-button-active text-button-text font-bold py-2 px-4 border-b-4 border-button-border active:border-button-active-border active:text-button-active-text rounded cursor-pointer`}
-
-        on:click
-        >
-        <slot/>
+<button
+	class={`${$$props.class || ''} cursor-pointer rounded border-b-4 border-button-border bg-button px-4 py-2 font-bold text-button-text hover:bg-button-hover active:border-button-active-border active:bg-button-active active:text-button-active-text`}
+	on:click
+>
+	<slot />
 </button>
