@@ -42,8 +42,8 @@
 			><Button class="text-xl">Interested in becoming a sponsor?</Button></Link
 		>
 	</div>
-	<div class="absolute left-1/6 bottom-0 -z-1">
+	<div class="absolute left-1/6 bottom-[14px] -z-1">
 		<Car class="w-sm" />
 	</div>
-	<div class="absolute bottom-0 min-w-full h-[2vh] bg-header -z-2"></div>
+	<div class="absolute bottom-0 min-w-full h-[15px] bg-header -z-2"></div>
 </div>

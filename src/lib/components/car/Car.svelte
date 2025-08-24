@@ -3,12 +3,14 @@
 	import gsap from "gsap";
 	import car from '$lib/assets/car.png';
 
-	// let carObj: HTMLImageElement;
+	let carObj: HTMLImageElement;
 
 	onMount(async () => {
-	    // const tl = gsap.timeline();
-	    gsap.to("img", { y: -5, duration: 0.1, repeatDelay: 1, repeat: -1, yoyo: true});
+	    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1, repeatRefresh: true });
+	    tl.set(carObj, { y: -3, delay: 1 })
+	      .set(carObj, { y: 3, delay: 0.2 })
+		;
 	});
 </script>
 
-<img src={car} alt="car" class={`${$$props.class || ''}`} />
+<img bind:this={carObj} src={car} alt="car" class={`${$$props.class || ''}`} />
