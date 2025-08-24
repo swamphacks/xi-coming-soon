@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Button from '$lib/components/button/Button.svelte';
 	import Car from '$lib/components/car/Car.svelte';
 	import Link from '$lib/components/link/Link.svelte';
@@ -31,7 +32,7 @@
 
 <div class="-z-1 h-screen w-screen overflow-hidden">
 	<div class="flex min-h-screen flex-col items-center justify-center gap-3">
-		<p class="title-text m-6 text-8xl font-bold tracking-wide text-header">Coming soon...</p>
+		<p class="title-text m-6 text-8xl font-bold tracking-wide text-header">Coming soon</p>
 		<div class="flex flex-row gap-3">
 			<Button on:click={toggleForm} class="text-3xl">Sign up for updates</Button>
 			<Link href="https://x.swamphacks.com/recap"><Button class="text-3xl">SH X Recap</Button></Link
@@ -41,7 +42,8 @@
 			><Button class="text-xl">Interested in becoming a sponsor?</Button></Link
 		>
 	</div>
-	<div class="absolute right-1/5 bottom-0">
+	<div class="absolute left-1/6 bottom-0 -z-1">
 		<Car class="w-sm" />
 	</div>
+	<div class="absolute bottom-0 min-w-full h-[2vh] bg-header -z-2"></div>
 </div>

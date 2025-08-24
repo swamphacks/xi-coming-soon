@@ -3,14 +3,9 @@
 
 @layer base {
 	@font-face {
-		font-family: Coiny;
-		src: url('/assets/fonts/coiny/Coiny-Regular.ttf');
-	}
-
-	@font-face {
 		font-family: AvenirNext;
 		font-weight: bold;
-		src: url('/assets/fonts/avenirnext/avenir-next-condensed-bold.ttf');
+		src: url('$lib/assets/fonts/avenirnext/avenir-next-condensed-bold.ttf');
 	}
 
 	.title-text {
