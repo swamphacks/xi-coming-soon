@@ -7,8 +7,8 @@
 
 	onMount(async () => {
 	    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1, repeatRefresh: true });
-	    tl.set(carObj, { y: -3, delay: 1 })
-	      .set(carObj, { y: 3, delay: 0.2 })
+	    tl.set(carObj, { y: -5, delay: 1 })
+	      .set(carObj, { y: 0, delay: 0.2 })
 		;
 	});
 </script>
