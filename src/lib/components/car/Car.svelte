@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import gsap from "gsap";
-	import car from '$lib/assets/car.png';
+	import car from '$lib/assets/car.gif';
 
 	let carObj: HTMLImageElement;
 
