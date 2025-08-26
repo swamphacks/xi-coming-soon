@@ -3,8 +3,13 @@
 	import Car from '$lib/components/car/Car.svelte';
 	import Link from '$lib/components/link/Link.svelte';
 	import Xbutton from '$lib/components/xbutton/Xbutton.svelte';
-	import { INTEREST_URL, SOURCE_URL } from "$env/static/private"
 
+	interface inputErrorType {
+		error: string
+		message: string
+	}
+	let error: inputErrorType;
+	
 	let showForm = $state(false);
 	let inputEmail = $state("");
 	let inputError = $state("");
@@ -15,13 +20,17 @@
 	};
 	
 	const sendInterestRequest = async () => {
-		console.log(inputEmail);
-		const res = await fetch(INTEREST_URL, {
+		inputSuccess = false;
+		inputError = "";
+		
+		// TODO: Change link to prod site
+		const res = await fetch("http://localhost:8080/events/368dd49d-fc69-444f-9f0e-d2ae75db95bb/interest", {
 			method: "POST",
-			body: JSON.stringify({email: inputEmail, source: SOURCE_URL})
+			body: JSON.stringify({email: inputEmail, source: "Coming Soon Page"})
 		});
 		if (!res.ok) {
-			inputError = await res.json();
+			error = await res.json();
+			inputError = error.message;
 		} else {
 			inputSuccess = true;
 		}
@@ -32,26 +41,29 @@
 	<div
 		class="fixed z-2 flex h-screen min-h-full w-screen min-w-full flex-col items-center justify-center"
 	>
-		<div class="flex flex-row gap-3 rounded bg-input-group p-6">
-			<Xbutton on:click={toggleForm} class="mr-2">X</Xbutton>
-			<!-- form used to run subscribe button when enter key is pressed -->
-			<form> 
-				<input
-					type="email"
-					bind:value={inputEmail}
-					id="email-input"
-					class="w-md rounded border-2 border-b-4 border-input-border bg-input p-4 text-2xl font-bold text-input-text focus:border-input-focus-border"
-					placeholder="email"
-				/>
-				<Button on:click={sendInterestRequest} class="text-2xl">Subscribe</Button>
-			</form>
+		<div class="flex flex-col justify-center bg-input-group">
+			<div class="flex flex-row gap-3 rounded p-6">
+				<Xbutton on:click={toggleForm} onWindowKeyDown={toggleForm} class="mr-2">X</Xbutton>
+				<!-- form used to run subscribe button when enter key is pressed -->
+				<form> 
+					<input
+						type="email"
+						bind:value={inputEmail}
+						id="email-input"
+						class="w-md rounded border-2 border-b-4 border-input-border bg-input p-4 text-2xl font-bold text-input-text focus:border-input-focus-border"
+						placeholder="email"
+					/>
+					<Button on:click={sendInterestRequest} class="text-2xl">Subscribe</Button>
+				</form>
+			</div>
+			{#if inputError}
+				<p class="text-red-500 text-lg text-center mb-2">{inputError}</p>
+			{/if}
+			{#if inputSuccess}
+				<p class="text-green-500 text-lg text-center mb-2">Subscribed successfully.</p>
+			{/if}
+
 		</div>
-		{#if inputError}
-			<p class="text-red-500 text-lg">{inputError}</p>
-		{/if}
-		{#if inputSuccess}
-			<p class="text-green-500 text-lg">Subscribed successfully.</p>
-		{/if}
 	</div>
 	<div class="fixed z-1 min-h-full min-w-full bg-gray-800 opacity-50"></div>
 {/if}
