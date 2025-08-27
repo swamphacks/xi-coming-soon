@@ -5,6 +5,10 @@
 	import Link from '$lib/components/link/Link.svelte';
 	import Xbutton from '$lib/components/xbutton/Xbutton.svelte';
 
+	const fetchUrl = "http://localhost:8080/events/368dd49d-fc69-444f-9f0e-d2ae75db95bb/interest";
+	// TODO: hookup to simpler backend (and make sure validation is all good)
+	// make server local copy of inputed emails for redundancy
+
 	interface inputErrorType {
 		error: string
 		message: string
@@ -15,7 +19,7 @@
 	let inputEmail = $state("");
 	let inputError = $state("");
 	let inputSuccess = $state(false);
-	let clientWidth = $state();
+	let windowWidth = $state(0);
 
 	const toggleForm = () => {
 		showForm = !showForm;
@@ -26,7 +30,7 @@
 		inputError = "";
 		
 		// TODO: Change link to prod site
-		const res = await fetch("http://localhost:8080/events/368dd49d-fc69-444f-9f0e-d2ae75db95bb/interest", {
+		const res = await fetch(fetchUrl, {
 			method: "POST",
 			body: JSON.stringify({email: inputEmail, source: "Coming Soon Page"})
 		});
@@ -43,11 +47,11 @@
 	<div
 		class="fixed z-2 flex h-screen min-h-full w-screen min-w-full flex-col items-center justify-center"
 	>
-		<div class="flex flex-col justify-center bg-input-group">
+		<div class="flex flex-col justify-center bg-input-group rounded">
 			<div class="flex flex-row gap-3 rounded p-6">
 				<Xbutton on:click={toggleForm} onWindowKeyDown={toggleForm} class="mr-2">X</Xbutton>
 				<!-- form used to run subscribe button when enter key is pressed -->
-				<form class="w-sm"> 
+				<form class="w-sm lg:w-auto"> 
 					<input
 						type="email"
 						bind:value={inputEmail}
@@ -67,26 +71,30 @@
 
 		</div>
 	</div>
-	<div class="fixed z-1 min-h-full min-w-full bg-gray-800 opacity-50"></div>
+	<div class="z-1 min-h-full min-w-full bg-gray-800 opacity-50"></div>
 {/if}
 
-<div bind:clientWidth={clientWidth} class="-z-1 h-screen w-screen overflow-hidden">
-	<!-- <div class="absolute top-0 right-0 -z-1">
-		<Cloud class="w-[20svh] right-0" />
-	</div> -->
+<svelte:window bind:innerWidth={windowWidth}/>
+<div class="overflow-hidden min-w-full min-h-full w-full h-full">
+	<div class="absolute top-[2vh] right-0 -z-1">
+		<Cloud {windowWidth} />
+		<Cloud {windowWidth} />
+		<Cloud {windowWidth} /> 
+		<Cloud {windowWidth} /> 
+	</div>
 	<div class="flex min-h-screen flex-col items-center justify-center gap-3">
-		<p class="title-text m-6 text-7xl lg:text-8xl font-bold tracking-wide text-header">Coming soon</p>
+		<p class="title-text m-6 text-6xl sm:text-7xl lg:text-8xl font-bold tracking-wide text-header">Coming soon</p>
 		<div class="flex flex-row gap-3">
 			<Button on:click={toggleForm} class="text-xl lg:text-3xl">Sign up for updates</Button>
 			<Link href="https://x.swamphacks.com/recap"><Button class="text-xl lg:text-3xl">SH X Recap</Button></Link
 			>
 		</div>
-		<Link href="mailto:contact@swamphacks.com"
+		<Link href="mailto:finance@swamphacks.com"
 			><Button class="text-md lg:text-xl">Interested in becoming a sponsor?</Button></Link
 		>
 	</div>
 	<div class="absolute left-[3vw] bottom-[1vh] -z-1">
-		<Car class="w-1/2 lg:w-sm" />
+		<Car class="w-64 lg:w-96" />
 	</div>
 	<div class="absolute bottom-0 min-w-full h-[2vh] bg-header -z-2"></div>
 </div>
