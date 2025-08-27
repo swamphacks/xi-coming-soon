@@ -40,18 +40,17 @@
 			error = await res.json();
 			inputError = error.message;
 		} else {
+			inputError = "";
 			inputSuccess = true;
 		}
 	}
 </script>
 
 {#if showForm}
-	<div
-		class="fixed z-2 w-full h-full flex flex-col items-center justify-center"
-	>
+	<div class="fixed z-2 w-full h-full flex flex-col items-center justify-center">
 		<div class="flex flex-col items-start">
-		<div class="w-auto bg-input-group rounded p-6">
-				<Button on:click={closeForm} class="mb-3 hover:bg-button-xxx hover:border-button-c-border">X</Button>
+			<div class="w-auto bg-input-group border-button-border border-2 rounded p-6">
+				<Button on:click={closeForm} class="mb-3 hover:text-red-700 hover:bg-close hover:border-close-border active:bg-close-active active:border-close-active">X</Button>
 				<!-- todo - x button placement -->
 				<!-- form used to run subscribe button when enter key is pressed -->
 				<form class="w-auto flex flex-col gap-3 justify-center items-stretch"> 
@@ -64,15 +63,13 @@
 					/>
 					<Button on:click={sendInterestRequest} class="w-auto text-xl lg:text-2xl">Subscribe</Button>
 					{#if inputError}
-						<p class="text-red-700 text-md lg:text-lg text-center">{inputError}</p>
+						<p class="text-red-700 text-md font-bold lg:text-lg text-center">{inputError}</p>
 					{/if}
 					{#if inputSuccess}
-						<p class="text-green-500 text-md lg:text-lg text-center">Subscribed successfully.</p>
+						<p class="text-green-700 text-md font-bold lg:text-lg text-center">Subscribed successfully!</p>
 					{/if}
 				</form>
-
-		</div>
-
+			</div>
 		</div>
 	</div>
 	<div class="z-1 min-h-full min-w-full bg-gray-800 opacity-50"></div>

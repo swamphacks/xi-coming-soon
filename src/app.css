@@ -28,8 +28,9 @@
 	--color-button-border: #beb684;
 	--color-button-hover: #dad19b;
 
-	--color-button-xxx: #fee2c4;
-	--color-button-c-border: #be8484;
+	--color-close: #fee2c4;
+	--color-close-border: #be8484;
+	--color-close-active: #765252;
 
 	--color-button-active: #767152;
 	--color-button-active-text: #3f3f3f;
