@@ -90,7 +90,7 @@
 			<Link href="https://x.swamphacks.com/recap"><Button class="text-md sm:text-xl lg:text-3xl">SH X Recap</Button></Link
 			>
 		</div>
-		<Link href="mailto:finance@swamphacks.com"
+		<Link href="mailto:sponsors@swamphacks.com"
 			><Button class="text-sm sm:text-md lg:text-xl">Interested in becoming a sponsor?</Button></Link
 		>
 	</div>
