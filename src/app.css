@@ -1,2 +1,45 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+@layer base {
+	@font-face {
+		font-family: AvenirNext;
+		font-weight: bold;
+		src: url('$lib/assets/fonts/avenirnext/avenir-next-condensed-bold.ttf');
+	}
+
+	.title-text {
+		font-family: AvenirNext;
+	}
+}
+
+@theme {
+	--color-header: #819766;
+
+	--color-input-group: #fef6c4;
+
+	--color-input: #f6ebab;
+	--color-input-text: var(--color-button-text);
+	--color-input-border: var(--color-button-border);
+	--color-input-focus-border: var(--color-button-active-border);
+
+	--color-button: #f6ebab;
+	--color-button-text: #4c5c3a;
+	--color-button-border: #beb684;
+	--color-button-hover: #dad19b;
+
+	--color-close: #fee2c4;
+	--color-close-border: #be8484;
+	--color-close-active: #765252;
+
+	--color-button-active: #767152;
+	--color-button-active-text: #3f3f3f;
+	--color-button-active-border: #9b946a;
+}
+
+html, body {
+    overflow: hidden;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+}
