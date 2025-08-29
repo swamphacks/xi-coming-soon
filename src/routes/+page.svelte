@@ -38,15 +38,16 @@
 		}).catch(()=> {
 			inputError = "Could not connect to api";
 		});
-		if (res && !res.ok) {
+		if (res && res.ok) {
+			inputSuccess = true;
+		} else if (res && !res.ok) {
 			error = await res.json();
 			inputError = error.message;
-		} else if (inputError) {
+		} else if (inputError !== "") {
 			// Thrown on fetch failure.
 			return;
-		} else {
-			inputError = "";
-			inputSuccess = true;
+		} else  {
+			inputError = "An unexpected error has occured."
 		}
 	}
 </script>
