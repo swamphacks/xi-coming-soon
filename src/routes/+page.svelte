@@ -29,6 +29,15 @@
 		inputEmail = "";
 	}
 	
+	const closeFormWithEsc = (e: KeyboardEvent) => {
+		if (e.repeat) return;
+		if (!showForm) return;
+
+		if (e.key == "Escape") {
+			closeForm();
+		}
+	}
+	
 	const sendInterestRequest = async () => {
 		inputSuccess = false;
 		inputError = "";
@@ -81,7 +90,7 @@
 	<div class="z-1 min-h-full min-w-full bg-gray-800 opacity-50"></div>
 {/if}
 
-<svelte:window bind:innerWidth={windowWidth}/>
+<svelte:window bind:innerWidth={windowWidth} on:keydown={closeFormWithEsc}/>
 <div class="overflow-hidden min-w-full min-h-full w-full h-full">
 	<div class="absolute top-[2vh] right-0 -z-1">
 		<Cloud {windowWidth} />
