@@ -16,7 +16,6 @@
 		const cloudWidth = cloudObj.width;
 		const duration = getRandomIntInclusive(5, 10);
 		const tl = gsap.timeline();
-		console.log(windowWidth, cloudWidth);
 	    tl.fromTo(cloudObj, {x: cloudWidth}, { x: -windowWidth, ease: "none", duration: duration, repeat: -1 });
 		tl.seek(1 + Math.floor(Math.random() * duration));
 	 });
