@@ -43,6 +43,9 @@
 		inputError = "";
 		const res = await fetch(PUBLIC_INTEREST_URL, {
 			method: "POST",
+			headers: {
+        'content-type': 'application/json'
+      },
 			body: JSON.stringify({email: inputEmail, source: `${PUBLIC_INTEREST_SOURCE}`})
 		}).catch(()=> {
 			inputError = "Could not connect to api";
