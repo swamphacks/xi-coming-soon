@@ -66,10 +66,8 @@
 
 {#if showForm}
 	<div class="fixed z-2 w-full h-full flex flex-col items-center justify-center">
-		<div class="flex flex-col items-start">
-			<div class="w-auto bg-input-group border-button-border border-2 rounded p-6">
-				<Button on:click={closeForm} class="mb-3 hover:text-red-700 hover:bg-close hover:border-close-border active:bg-close-active active:border-close-active">X</Button>
-				<!-- todo - x button placement -->
+			<div class="flex flex-col w-auto bg-input-group border-button-border border-2 rounded p-6">
+				<Button on:click={closeForm} class="self-end mb-3 hover:text-red-700 hover:bg-close hover:border-close-border active:bg-close-active active:border-close-active">X</Button>
 				<!-- form used to run subscribe button when enter key is pressed -->
 				<form class="w-auto flex flex-col gap-3 justify-center items-stretch"> 
 					<input
@@ -88,7 +86,6 @@
 					{/if}
 				</form>
 			</div>
-		</div>
 	</div>
 	<div class="z-1 min-h-full min-w-full bg-gray-800 opacity-50"></div>
 {/if}
@@ -102,7 +99,10 @@
 		<Cloud {windowWidth} /> 
 	</div>
 	<div class="flex min-h-screen flex-col items-center justify-center gap-3">
-		<p class="title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wide text-header">Swamphacks XI<br>Coming soon</p>
+		<p class="title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wide text-header">SwampHacks XI<br>Coming soon</p>
+		<noscript>
+			<p class="text-center font-bold text-red-700 text-3xl">Please enable JavaScript!!!</p>
+		</noscript>
 		<div class="flex flex-row gap-3">
 			<Button on:click={openForm} class="text-md sm:text-xl lg:text-3xl">Sign up for updates</Button>
 			<Link href="https://x.swamphacks.com/recap"><Button class="text-md sm:text-xl lg:text-3xl">SH X Recap</Button></Link
