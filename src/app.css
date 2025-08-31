@@ -11,11 +11,19 @@
 	.title-text {
 		font-family: AvenirNext;
 	}
+	.font-outline-night {
+		paint-order: stroke fill;
+		-webkit-text-stroke: 6px #788a63;
+	}
+	.font-outline {
+		paint-order: stroke fill;
+		-webkit-text-stroke: 8px #0c4421;
+	}
 }
 
 @theme {
-	--color-header: #819766;
-	--color-header-night: #b6ddaa;
+	--color-header: #a0bb7e;
+	--color-header-night: #c0d6a5;
 	
 	--color-input-group: #fef6c4;
 
