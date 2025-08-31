@@ -107,7 +107,7 @@
 		<Cloud {windowWidth} /> 
 	</div>
 	<div class="flex min-h-screen flex-col items-center justify-center gap-3">
-		<p class={`title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wide ${timeHour > 22 ? "text-header-night" : "text-header"}`}>SwampHacks XI<br>Coming soon</p>
+		<p class={`title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wide leading-14 md:leading-20 lg:leading-32 ${timeHour > 22 ? "text-header-night font-outline-night" : "text-header font-outline"}`}>SwampHacks XI<br>Coming soon</p>
 		<noscript>
 			<p class="text-center font-bold text-red-700 text-3xl">Please enable JavaScript!!!</p>
 		</noscript>
