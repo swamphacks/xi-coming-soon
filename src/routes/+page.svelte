@@ -94,7 +94,7 @@
 				</form>
 			</div>
 	</div>
-	<div class="z-1 min-h-full min-w-full bg-overlay"></div>
+	<div class="z-1 absolute min-h-full min-w-full bg-gray-800 opacity-50"></div>
 {/if}
 
 <svelte:window bind:innerWidth={windowWidth} on:keydown={closeFormWithEsc}/>
