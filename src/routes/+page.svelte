@@ -5,6 +5,8 @@
 	import Link from '$lib/components/link/Link.svelte';
 	
 	import { PUBLIC_INTEREST_URL, PUBLIC_INTEREST_SOURCE } from '$env/static/public';
+	import BackgroundGradiant from '$lib/components/backgroundgradiant.svelte/BackgroundGradiant.svelte';
+	import { onMount } from 'svelte';
 
 	interface inputErrorType {
 		error: string
@@ -17,6 +19,7 @@
 	let inputError = $state("");
 	let inputSuccess = $state(false);
 	let windowWidth = $state(0);
+	let timeHour = $state(0);
 
 	const openForm = () => {
 		showForm = !showForm;
@@ -44,8 +47,8 @@
 		const res = await fetch(PUBLIC_INTEREST_URL, {
 			method: "POST",
 			headers: {
-        'content-type': 'application/json'
-      },
+				'content-type': 'application/json'
+			},
 			body: JSON.stringify({email: inputEmail, source: `${PUBLIC_INTEREST_SOURCE}`})
 		}).catch(()=> {
 			inputError = "Could not connect to api";
@@ -62,6 +65,10 @@
 			inputError = "An unexpected error has occured."
 		}
 	}
+	
+	onMount(() => {
+        timeHour = new Date().getHours();
+	})
 </script>
 
 {#if showForm}
@@ -87,10 +94,11 @@
 				</form>
 			</div>
 	</div>
-	<div class="z-1 min-h-full min-w-full bg-gray-800 opacity-50"></div>
+	<div class="z-1 min-h-full min-w-full bg-overlay"></div>
 {/if}
 
 <svelte:window bind:innerWidth={windowWidth} on:keydown={closeFormWithEsc}/>
+<BackgroundGradiant />
 <div class="overflow-hidden min-w-full min-h-full w-full h-full">
 	<div class="absolute top-[2vh] right-0 -z-1">
 		<Cloud {windowWidth} />
@@ -99,7 +107,7 @@
 		<Cloud {windowWidth} /> 
 	</div>
 	<div class="flex min-h-screen flex-col items-center justify-center gap-3">
-		<p class="title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wide text-header">SwampHacks XI<br>Coming soon</p>
+		<p class={`title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wide ${timeHour > 22 ? "text-header-night" : "text-header"}`}>SwampHacks XI<br>Coming soon</p>
 		<noscript>
 			<p class="text-center font-bold text-red-700 text-3xl">Please enable JavaScript!!!</p>
 		</noscript>
@@ -113,7 +121,7 @@
 		>
 	</div>
 	<div class="absolute left-[3vw] bottom-[1vh] -z-1">
-		<Car class="w-64 lg:w-96" />
+		<Car class="w-64 lg:w-96 rotate-1" />
 	</div>
 	<div class="absolute bottom-0 min-w-full h-[2vh] bg-header -z-2"></div>
 </div>

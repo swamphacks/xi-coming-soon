@@ -15,6 +15,9 @@
 
 @theme {
 	--color-header: #819766;
+	--color-header-night: #b6ddaa;
+	
+	--color-overlay: rgba(0,0,0,0.5);
 
 	--color-input-group: #fef6c4;
 
@@ -35,11 +38,21 @@
 	--color-button-active: #767152;
 	--color-button-active-text: #3f3f3f;
 	--color-button-active-border: #9b946a;
+	
+	--color-tod-morning-0:  #fceabb;
+	--color-tod-morning-1: #ebfeff;
+	--color-tod-afternoon-0: #f1fbff;
+	--color-tod-afternoon-1: #e2fffd;
+	--color-tod-evening-0: #ffdbd6;
+	--color-tod-evening-1: #c0cee9;
+	--color-tod-night-0: #1d2729;
+	--color-tod-night-1: #546b81;
 }
 
 html, body {
     overflow: hidden;
 	position: fixed;
 	width: 100vw;
-	height: 100vh;
+    height: -webkit-fill-available; /*Changes viewport height to be above/below mobile search bar*/
+
 }
