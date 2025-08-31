@@ -14,7 +14,7 @@
 	
 	const animation = () => {
 		const cloudWidth = cloudObj.width;
-		const duration = getRandomIntInclusive(5, 10);
+		const duration = getRandomIntInclusive(15, 25);
 		const tl = gsap.timeline();
 		tl.fromTo(cloudObj, {x: cloudWidth}, { x: -windowWidth, ease: "none", duration: duration, repeat: -1, repeatRefresh: true});
 		tl.seek(1 + Math.floor(Math.random() * duration));
