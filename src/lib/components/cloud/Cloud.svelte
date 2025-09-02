@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import gsap from "gsap";
-	import cloud from '$lib/assets/cloud.png';
+	import cloud from '$lib/assets/cloud_1.png';
 
 	let cloudObj: HTMLImageElement;
     const { windowWidth } = $props();
@@ -26,4 +26,4 @@
 	 });
 </script>
 
-<img bind:this={cloudObj} src={cloud} alt="cloud" class="right-0 w-48 lg:w-80" />
+<img bind:this={cloudObj} src={cloud} alt="cloud" class="right-0 w-48 2xl:w-80" />
