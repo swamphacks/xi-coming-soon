@@ -107,21 +107,21 @@
 		<Cloud {windowWidth} /> 
 	</div>
 	<div class="flex min-h-screen flex-col items-center justify-center gap-3">
-		<p class={`title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl lg:text-8xl font-bold tracking-wide leading-14 md:leading-20 lg:leading-32 ${timeHour >= 22 || timeHour < 6 ? "text-header-night font-outline-night" : "text-header font-outline"}`}>SwampHacks XI<br>Coming soon</p>
+		<p class={`title-text text-center m-4 sm:m-6 text-5xl sm:text-7xl 2xl:text-8xl font-bold tracking-wide leading-14 md:leading-20 2xl:leading-32 ${timeHour >= 22 || timeHour < 6 ? "text-header-night font-outline-night" : "text-header font-outline"}`}>SwampHacks XI<br>Coming soon</p>
 		<noscript>
 			<p class="text-center font-bold text-red-700 text-3xl">Please enable JavaScript!!!</p>
 		</noscript>
 		<div class="flex flex-row gap-3">
-			<Button on:click={openForm} class="text-md sm:text-xl lg:text-3xl">Sign up for updates</Button>
-			<Link href="https://x.swamphacks.com/recap"><Button class="text-md sm:text-xl lg:text-3xl">SH X Recap</Button></Link
+			<Button on:click={openForm} class="text-md sm:text-xl 2xl:text-3xl">Sign up for updates</Button>
+			<Link href="https://x.swamphacks.com/recap"><Button class="text-md sm:text-xl 2xl:text-3xl">SH X Recap</Button></Link
 			>
 		</div>
 		<Link href="mailto:sponsors@swamphacks.com"
-			><Button class="text-sm sm:text-md lg:text-xl">Interested in becoming a sponsor?</Button></Link
+			><Button class="text-sm sm:text-md 2xl:text-xl">Interested in becoming a sponsor?</Button></Link
 		>
 	</div>
 	<div class="absolute left-[3vw] bottom-[1vh] -z-1">
-		<Car class="w-64 lg:w-96 rotate-1" />
+		<Car class="w-64 2xl:w-96 rotate-1" />
 	</div>
 	<div class="absolute bottom-0 min-w-full h-[2vh] bg-header -z-2"></div>
 </div>

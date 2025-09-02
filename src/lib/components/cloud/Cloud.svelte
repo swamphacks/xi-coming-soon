@@ -26,4 +26,4 @@
 	 });
 </script>
 
-<img bind:this={cloudObj} src={cloud} alt="cloud" class="right-0 w-48 lg:w-80" />
+<img bind:this={cloudObj} src={cloud} alt="cloud" class="right-0 w-48 2xl:w-80" />
