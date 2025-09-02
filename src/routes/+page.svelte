@@ -111,14 +111,11 @@
 		<noscript>
 			<p class="text-center font-bold text-red-700 text-3xl">Please enable JavaScript!!!</p>
 		</noscript>
-		<div class="flex flex-row gap-3">
+		<div class="flex flex-col w-auto gap-3 justify-center items-stretch">
 			<Button on:click={openForm} class="text-md sm:text-xl 2xl:text-3xl">Sign up for updates</Button>
-			<Link href="https://x.swamphacks.com/recap"><Button class="text-md sm:text-xl 2xl:text-3xl">SH X Recap</Button></Link
-			>
+			<Link href="https://x.swamphacks.com/recap"><Button class="w-full text-md sm:text-xl 2xl:text-3xl">SH X Recap</Button></Link>
+			<Link href="mailto:sponsors@swamphacks.com"><Button class="w-full text-md sm:text-xl 2xl:text-3xl">Sponsor SwampHacks XI</Button></Link>
 		</div>
-		<Link href="mailto:sponsors@swamphacks.com"
-			><Button class="text-sm sm:text-md 2xl:text-xl">Interested in becoming a sponsor?</Button></Link
-		>
 	</div>
 	<div class="absolute left-[3vw] bottom-[1vh] -z-1">
 		<Car class="w-64 2xl:w-96 rotate-1" />
