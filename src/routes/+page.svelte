@@ -6,7 +6,6 @@
 	
 	import { PUBLIC_INTEREST_URL, PUBLIC_INTEREST_SOURCE } from '$env/static/public';
 	import BackgroundGradiant from '$lib/components/backgroundgradiant.svelte/BackgroundGradiant.svelte';
-	import { onMount } from 'svelte';
 
 	interface inputErrorType {
 		error: string
@@ -14,12 +13,13 @@
 	}
 	let error: inputErrorType;
 	
+	const time = new Date();
+	let timeHour = time.getHours();
 	let showForm = $state(false);
 	let inputEmail = $state("");
 	let inputError = $state("");
 	let inputSuccess = $state(false);
 	let windowWidth = $state(0);
-	let timeHour = $state(0);
 
 	const openForm = () => {
 		showForm = !showForm;
@@ -65,10 +65,6 @@
 			inputError = "An unexpected error has occured."
 		}
 	}
-	
-	onMount(() => {
-        timeHour = new Date().getHours();
-	})
 </script>
 
 {#if showForm}
@@ -98,7 +94,7 @@
 {/if}
 
 <svelte:window bind:innerWidth={windowWidth} on:keydown={closeFormWithEsc}/>
-<BackgroundGradiant />
+<BackgroundGradiant {time} />
 <div class="overflow-hidden min-w-full min-h-full w-full h-full">
 	<div class="absolute top-[2vh] right-0 -z-1">
 		<Cloud {windowWidth} />

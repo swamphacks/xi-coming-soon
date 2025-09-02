@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 
+    const { time } = $props();
     let currentClass = $state("");
 
     onMount(()=>{
-        const hour = new Date().getHours();
+        const hour = time.getHours();
         const classPrefix = "absolute -z-3 h-full w-full "
 
         if (hour >= 6 && hour < 12) {
